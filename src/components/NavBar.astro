@@ -1,0 +1,51 @@
+---
+const ItemsNavBar = [
+  { label: "Experiencia", link: "experiencia" },
+  { label: "Proyectos", link: "proyectos" },
+  { label: "Sobre mí", link: "sobre-mí" },
+  { label: "Contacto", link: "contacto" },
+  { label: "Mi blog", link: "mi-blog" },
+];
+---
+
+<header class="container text-text">
+  <nav
+    class="bg-background text-right p-4 h-[90vh] absolute right-0 w-[90%] top-0 flex flex-col sm:hidden gap-4 z-50"
+  >
+    <div><p>x</p></div>
+    <ul class="flex flex-col gap-4 text-2xl items-start hover:bg-background">
+      {
+        ItemsNavBar.map((e) => (
+          <li>
+            <a href={e.link}>{e.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex items-center justify-center gap-2">
+      <div>icono</div>
+      <div>icono</div>
+      <div>icono</div>
+
+      <button id="theme-toggle">Toggle Tema</button>
+    </div>
+  </nav>
+</header>
+<script>
+  const themeToggleButton = document.getElementById("theme-toggle");
+
+  const currentTheme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+  document.documentElement.classList.toggle("dark", currentTheme === "dark");
+
+  console.log(currentTheme);
+  themeToggleButton.addEventListener("click", () => {
+    console.log("tocando boton");
+    const isDarkMode = document.documentElement.classList.toggle("dark");
+    console.log(isDarkMode);
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  });
+</script>
