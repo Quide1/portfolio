@@ -1,51 +1,159 @@
 ---
+import MoonIcon from "./icons/MoonIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
 const ItemsNavBar = [
-  { label: "Experiencia", link: "experiencia" },
-  { label: "Proyectos", link: "proyectos" },
-  { label: "Sobre mí", link: "sobre-mí" },
-  { label: "Contacto", link: "contacto" },
-  { label: "Mi blog", link: "mi-blog" },
+  { label: "Experiencia", link: "#experiencia" },
+  { label: "Proyectos", link: "#proyectos" },
+  { label: "Sobre mí", link: "#sobre-mí" },
+  { label: "Contacto", link: "#contacto" },
+  { label: "Mi blog", link: "#mi-blog" },
 ];
 ---
 
-<header class="container text-text">
-  <nav
-    class="bg-background text-right p-4 h-[90vh] absolute right-0 w-[90%] top-0 flex flex-col sm:hidden gap-4 z-50"
-  >
-    <div><p>x</p></div>
-    <ul class="flex flex-col gap-4 text-2xl items-start hover:bg-background">
-      {
-        ItemsNavBar.map((e) => (
-          <li>
-            <a href={e.link}>{e.label}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <div class="flex items-center justify-center gap-2">
-      <div>icono</div>
-      <div>icono</div>
-      <div>icono</div>
-
-      <button id="theme-toggle">Toggle Tema</button>
+<header class="sticky top-0">
+  <nav class="h-12 flex">
+    <div
+      class="sm:hidden bg-gray-400 h-full w-full items-center flex flex-row relative border-red-600 justify-end p-2 text-base"
+    >
+      <button
+        id="open-smart-menu"
+        aria-controls="menu-smartphone"
+        aria-expanded="false">Abrir menú</button
+      >
+      <div
+        class="fixed top-0 left-0 w-full h-full flex flex-row border-2 justify-center transition-all duration-300 ease-in-out"
+        id="menu-smartphone"
+      >
+        <div class="w-[20%] h-full bg-black/85 "></div>
+        <div class="w-[80%] bg-light-secondary dark:bg-dark-secondary font-bold">
+          <div
+            class="h-[800px] flex flex-col px-4 py-12 items-center justify-between"
+          >
+            <div class="flex w-full items-center justify-end">
+              <button id="close-smart-menu" aria-label="Cerrar menú">X</button>
+            </div>
+            <ul
+              class="flex flex-col w-full gap-10 pt-4 pl-6 text-2xl font-bold items-start "
+            >
+              {
+                ItemsNavBar.map((e) => (
+                  <li class="hover:text-light-accent dark:hover:text-dark-accent">
+                    <a href={e.link}>{e.label}</a>
+                  </li>
+                ))
+              }
+            </ul>
+            <div
+              class="flex flex-row justify-around items-center py-8 max-w-80 w-full mt-10"
+            >
+              <div>icono</div>
+              <div>icono</div>
+              <div>icono</div>
+            </div>
+            <div class="w-full flex flex-col items-start justify-center px-4 gap-2">
+              <p class="uppercase text-lg">Cambiar tema</p>
+              <button
+                id="theme-toggle"
+                class="flex items-center justify-center relative w-14 h-14"
+              >
+                <div
+                  id="dark"
+                class="theme-toggle-icon absolute transition-all rounded-lg w-full h-full flex items-center justify-center"
+                >
+                  <div
+                    class="absolute w-12 h-12 bg-gradient-to-r rounded-full blur-lg opacity-80 z-10 from-blue-500 to-purple-500"
+                  >
+                  </div>
+                  <MoonIcon class="w-7 h-7  z-20"/>
+                </div>
+                <div
+                  id="light"
+                  class="theme-toggle-icon absolute transition-all rounded-lg w-full h-full flex items-center justify-center"
+                >
+                <div
+                class="absolute w-12 h-12 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full blur-lg opacity-80 z-10"
+              >
+                  </div>
+                  <SunIcon class="w-7 h-7  z-20"/>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="hidden sm:flex sm:flex-row sm:items-center bg-gray-500/60 w-full h-full"
+      id="NavBar pantalla medianas"
+    >
+      Hola desde la barra de pantalla larga
     </div>
   </nav>
 </header>
+
 <script>
+  //hidden translate-x-full
   const themeToggleButton = document.getElementById("theme-toggle");
 
+  /**
+   * Abrir menú
+   */
+  const openMenuButton = document.getElementById("open-smart-menu");
+  const menuSmartPhone = document.getElementById("menu-smartphone");
+  const closeMenuButton = document.getElementById("close-smart-menu");
+
+  const toggleClassMenuSmart = () => {
+    if (menuSmartPhone) {
+      if (menuSmartPhone.classList.contains("hidden")) {
+        menuSmartPhone.classList.remove("hidden");
+        setTimeout(() => {
+          menuSmartPhone.classList.add("flex");
+          menuSmartPhone.classList.remove("translate-x-full");
+          menuSmartPhone.classList.add("translate-x-0");
+        }, 100); // Delay para permitir la transición suave
+      } else {
+        menuSmartPhone.classList.add("translate-x-full");
+        menuSmartPhone.classList.remove("translate-x-0");
+        setTimeout(() => {
+          menuSmartPhone.classList.remove("flex");
+          menuSmartPhone.classList.add("hidden");
+        }, 300); // Espera para ocultarlo después de la animación
+      }
+    }
+  };
+
+  openMenuButton?.addEventListener("click", () => {
+    toggleClassMenuSmart();
+  });
+
+  closeMenuButton?.addEventListener("click", () => {
+    toggleClassMenuSmart();
+  });
+
+  /** Cambiar tema de la página */
   const currentTheme =
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light");
   document.documentElement.classList.toggle("dark", currentTheme === "dark");
+  document.querySelectorAll(".theme-toggle-icon").forEach((elementFor ) => {
+    const element = elementFor as HTMLElement
+    element.style.scale = element.id === currentTheme ? "1" : "0";
+  });
 
-  console.log(currentTheme);
-  themeToggleButton.addEventListener("click", () => {
-    console.log("tocando boton");
+  const updateIcon = (isDarkMode: boolean) => {
+  const themePreference = isDarkMode ? "dark" : "light";
+  
+  document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
+    const htmlElement = element as HTMLElement;
+    htmlElement.style.scale = htmlElement.id === themePreference ? "1" : "0";
+  });
+};
+
+  themeToggleButton?.addEventListener("click", () => {
     const isDarkMode = document.documentElement.classList.toggle("dark");
-    console.log(isDarkMode);
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    updateIcon(isDarkMode);
   });
 </script>
