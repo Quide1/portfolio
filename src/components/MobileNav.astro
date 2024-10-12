@@ -1,0 +1,79 @@
+---
+import { type ItemsNavMobileType } from "./NavBar.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import XIcon from "./icons/XIcon.astro";
+import ToggleTheme from "./ToggleTheme.astro";
+
+interface Props {
+  itemsNavBarWithOptional: ItemsNavMobileType;
+}
+const { itemsNavBarWithOptional } = Astro.props;
+---
+
+<div
+  class="sm:hidden bg-gray-400 h-full w-full items-center flex flex-row relative justify-end p-2"
+>
+  <button
+    id="open-smart-menu"
+    aria-controls="menu-smartphone"
+    aria-expanded="false">Abrir menú</button
+  >
+  <div
+    class="fixed top-0 left-0 w-full h-full flex flex-row border-2 justify-center transition-all duration-300 ease-in-out"
+    id="menu-smartphone"
+  >
+    <div class="w-[20%] h-full bg-black/85"></div>
+    <div class="w-[80%] bg-light-background dark:bg-dark-background font-bold">
+      <div class="h-[800px] flex flex-col py-12 items-center justify-between">
+        <div class="flex w-full items-center justify-end px-4">
+          <button id="close-smart-menu" aria-label="Cerrar menú"
+            ><XIcon
+              class="w-8 h-8 hover:scale-105 hover:text-red-500 transition-all"
+            />
+          </button>
+        </div>
+        <ul
+          class="flex flex-col w-full gap-10 pt-4 text-2xl font-bold items-start px-2"
+        >
+          {
+            itemsNavBarWithOptional.map((e) => (
+              <li class="py-2 px-3 hover:text-light-accent dark:hover:text-dark-accent  hover:scale-105 transition-all w-full ">
+                <a
+                 aria-label={e.id}
+                  href={e.link}
+                  class="flex flex-row items-center justify-start gap-2 "
+                >
+                  <span>
+                    <e.icon />
+                  </span>
+                  {e.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="flex flex-col justify-center w-full pt-8">
+          <p class="uppercase text-lg px-5">Mis redes</p>
+          <div class="flex flex-row justify-around items-center w-full py-10">
+            <LinkedinIcon
+              class="w-8 h-8 hover:scale-110 hover:text-light-accent transition-all dark:hover:text-dark-accent"
+            />
+            <div>
+              <GithubIcon
+                class="w-8 h-8 hover:text-light-accent hover:scale-110 transition-all dark:hover:text-dark-accent"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center w-full pt-8">
+          <p class="uppercase text-lg px-5">Cambiar tema</p>
+          <div class="flex flex-row justify-around items-center w-full py-10">
+            <ToggleTheme />
+            <div class="h-4 w-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

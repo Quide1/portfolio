@@ -1,0 +1,38 @@
+---
+import MoonIcon from "./icons/MoonIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
+import { type ItemsNavBarType } from "./NavBar.astro";
+import ToggleTheme from "./ToggleTheme.astro";
+interface Props {
+  itemsNavBar: ItemsNavBarType;
+}
+const itemsNavBar = Astro.props.itemsNavBar;
+---
+
+<div
+  class="hidden sm:flex sm:flex-row sm:items-center justify-center  w-full h-full"
+  id="NavBar pantalla medianas"
+>
+  <ul
+    class="flex flex-row  px-4  items-center justify-center gap-12 bg-white/70 dark:bg-gray-950/70 rounded-full"
+  >
+    {
+      itemsNavBar.map((e) => {
+        return (
+          <a
+          aria-label={e.id}
+            class="font-bold hover:text-light-accent dark:hover:text-dark-accent hover:scale-110 transition-all "
+            href={e.link}
+          >
+            <li>{e.label}</li>
+          </a>
+        );
+      })
+    }
+    <div class="">
+      <div class="flex flex-row justify-around items-center w-full">
+        <ToggleTheme />
+      </div>
+    </div>
+  </ul>
+</div>
