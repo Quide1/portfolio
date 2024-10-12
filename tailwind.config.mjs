@@ -4,17 +4,18 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'dark-text': '#e8f2eb',
-				'dark-background': '#050a07',
-				'dark-primary': '#46a461',
-				'dark-secondary': '#225d33',
-				'dark-accent': '#319b51',
-				'light-text': '#0d1710',
-				'light-background': '#f5faf7',
-				'light-primary': '#5bb975',
-				'light-secondary': '#a2ddb3',
-				'light-accent': '#64ce84',
-			  },
+				'light-text': '#0f151a',
+				'light-background': '#eef2f6',
+				'light-primary': '#2c4963',
+				'light-secondary': '#92b5d3',
+				'light-accent': '#396d9d',
+				'dark-text': '#e5ebf0',
+				'dark-background': '#090d11',
+				'dark-primary': '#9cb9d3',
+				'dark-secondary': '#2c4f6d',
+				'dark-accent': '#6296c6',
+			},
+			
 			  
 		},
 	},
