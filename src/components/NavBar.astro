@@ -8,18 +8,23 @@ import ArticleIcon from "./icons/ArticleIcon.astro";
 import MobileNav from "./MobileNav.astro";
 import DesktopNav from "./DesktopNav.astro";
 const itemsNavBar = [
-  { label: "Experiencia", link: "#experiencia", icon: CaseIcon,id:"experiencia"},
-  { label: "Proyectos", link: "#proyectos", icon: Clipboard,id:"proyectos" },
-  { label: "Sobre mí", link: "#sobre-mi", icon: UserIcon ,id:"sobre-mi"},
+  {
+    label: "Experiencia",
+    link: "#experiencia",
+    icon: CaseIcon,
+    id: "experiencia",
+  },
+  { label: "Proyectos", link: "#proyectos", icon: Clipboard, id: "proyectos" },
+  { label: "Sobre mí", link: "#sobre-mi", icon: UserIcon, id: "sobre-mi" },
   {
     label: "Contacto",
     link: "mailto:ezequielr.dev@gmail.com?subject=Propuesta&body=Hola%2C%20te%20tengo%20una%20propuesta",
     icon: MailIcon,
-    id:"contacto"
+    id: "contacto",
   },
 ];
 const optionalItemsNavBar = [
-  { label: "Mi blog", link: "#mi-blog", icon: ArticleIcon ,id:"mi-blog"},
+  { label: "Mi blog", link: "#mi-blog", icon: ArticleIcon, id: "mi-blog" },
 ];
 const itemsNavBarWithOptional = itemsNavBar.concat(optionalItemsNavBar);
 
@@ -27,8 +32,8 @@ export type ItemsNavMobileType = typeof itemsNavBarWithOptional;
 export type ItemsNavBarType = typeof itemsNavBar;
 ---
 
-<header class="sticky top-0">
-  <nav class="h-14 flex">
+<header class="sticky top-0 flex flex-col items-center justify-center">
+  <nav id="header-nav" class="h-16 min-w-[400px] max-w-[700px]">
     <MobileNav {itemsNavBarWithOptional} />
     <DesktopNav itemsNavBar={itemsNavBar} />
   </nav>
@@ -36,54 +41,48 @@ export type ItemsNavBarType = typeof itemsNavBar;
 
 <script>
   /** Poner los labels en color */
-
-  const sections = document.querySelectorAll('section')
-  const navItems = document.querySelectorAll("header nav a")
+  const sections = document.querySelectorAll("section");
+  const navItems = document.querySelectorAll("header nav a");
   /** Opciones del observer */
   const options = {
-    root:null,
-    rootMargin:"0px",
-    threshold:1,
-  }
-
-
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
   /** Callback por cada una de las entradas que registre cuando pase se active por el threshold */
   const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems?.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-900")
-              item.classList.add("dark:text-blue-500")
-            } else {
-              item.classList.remove("text-blue-900")
-              item.classList.remove("dark:text-blue-500")
-
-            }
-          })
-        }
-      })
-    }
-  const observer = new IntersectionObserver(callback,options)
-  sections?.forEach((e)=>{observer.observe(e)})
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navItems?.forEach((item) => {
+          if (item.getAttribute("aria-label") == entry.target.id) {
+            item.classList.add("text-blue-900");
+            item.classList.add("dark:text-blue-500");
+          } else {
+            item.classList.remove("text-blue-900");
+            item.classList.remove("dark:text-blue-500");
+          }
+        });
+      }
+    });
+  };
+  const observer = new IntersectionObserver(callback, options);
+  sections?.forEach((e) => {
+    observer.observe(e);
+  });
   const themeToggleButton = document.querySelectorAll("#theme-toggle");
-  const divRandom = document.getElementById('div random')
-  if(divRandom){
-    observer.observe(divRandom)
-
+  const divRandom = document.getElementById("div random");
+  if (divRandom) {
+    observer.observe(divRandom);
   }
   document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer?.disconnect()
-      } else {
-        sections.forEach((section) => {
-          observer?.observe(section)
-        })
-      }
+    if (document.visibilityState === "hidden") {
+      observer?.disconnect();
+    } else {
+      sections.forEach((section) => {
+        observer?.observe(section);
+      });
     }
-
-
-
+  };
 
   /**
    * Abrir menú
@@ -146,14 +145,60 @@ export type ItemsNavBarType = typeof itemsNavBar;
       htmlElement.style.scale = htmlElement.id === themePreference ? "1" : "0";
     });
   };
-  themeToggleButton.forEach((e)=>{
+  themeToggleButton.forEach((e) => {
     e.addEventListener("click", () => {
-    console.log('cambiando tema')
-    const isDarkMode = document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-    updateIcon(isDarkMode);
+      console.log("cambiando tema");
+      const isDarkMode = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+      updateIcon(isDarkMode);
+    });
   });
-  })
-
-
 </script>
+<style is:global>
+  #header-nav {
+    animation-name: blur-light;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 40px;
+    color: #0f151a;
+  }
+
+  @keyframes blur-light {
+    from {
+      border-width: 0px;
+      border-color: transparent;
+      background-color: transparent;
+    }
+    to {
+      border-width: 1px;
+      border-color: black;
+      border-radius: 9999px;
+      background-color: rgba(155, 155, 155, 0.2);
+
+      margin-top: 10px;
+    }
+  }
+
+  .dark #header-nav {
+    animation-name: blur-dark;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    color: #e5ebf0;
+  }
+
+  @keyframes blur-dark {
+    from {
+      border-width: 0px;
+      border-color: transparent;
+      background-color: transparent;
+    }
+    to {
+      border-width: 1px;
+      border-color: gray;
+      border-radius: 9999px;
+      background-color: rgba(0, 0, 0, 0.2);
+      margin-top: 10px;
+    }
+  }
+</style>

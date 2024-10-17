@@ -4,6 +4,8 @@ import LinkedinIcon from "./icons/LinkedinIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 import XIcon from "./icons/XIcon.astro";
 import ToggleTheme from "./ToggleTheme.astro";
+import HamburgerIcon from "./icons/HamburgerIcon.astro";
+import HomeIcon from "./icons/HomeIcon.astro";
 
 interface Props {
   itemsNavBarWithOptional: ItemsNavMobileType;
@@ -12,19 +14,27 @@ const { itemsNavBarWithOptional } = Astro.props;
 ---
 
 <div
-  class="sm:hidden bg-gray-400 h-full w-full items-center flex flex-row relative justify-end p-2"
+  class="sm:hidden h-full w-full items-center flex flex-row justify-center rounded-full px-6"
 >
-  <button
-    id="open-smart-menu"
-    aria-controls="menu-smartphone"
-    aria-expanded="false">Abrir menú</button
-  >
+  <div class="flex flex-rows items-center justify-center gap-8 w-full">
+    <button>
+      <HomeIcon class="w-8 h-8" />
+    </button>
+    <button
+      class="font-bold hover:scale-110 hover:text-light-accent dark:hover:text-dark-accent"
+      id="open-smart-menu"
+      aria-controls="menu-smartphone"
+      aria-expanded="false"><HamburgerIcon class="w-8 h-8" /></button
+    >
+  </div>
   <div
-    class="fixed top-0 left-0 w-full h-full flex flex-row border-2 justify-center transition-all duration-300 ease-in-out"
+    class="hidden fixed top-0 left-0 w-full h-full flex-row justify-center transition-all duration-300 ease-in-out"
     id="menu-smartphone"
   >
-    <div class="w-[20%] h-full bg-black/85"></div>
-    <div class="w-[80%] bg-light-background dark:bg-dark-background font-bold">
+    <div class="w-[20%] h-full bg-black/85 z-50"></div>
+    <div
+      class="w-[80%] border-blue-600 bg-light-background dark:bg-dark-background font-bold z-50"
+    >
       <div class="h-[800px] flex flex-col py-12 items-center justify-between">
         <div class="flex w-full items-center justify-end px-4">
           <button id="close-smart-menu" aria-label="Cerrar menú"
@@ -40,7 +50,7 @@ const { itemsNavBarWithOptional } = Astro.props;
             itemsNavBarWithOptional.map((e) => (
               <li class="py-2 px-3 hover:text-light-accent dark:hover:text-dark-accent  hover:scale-105 transition-all w-full ">
                 <a
-                 aria-label={e.id}
+                  aria-label={e.id}
                   href={e.link}
                   class="flex flex-row items-center justify-start gap-2 "
                 >

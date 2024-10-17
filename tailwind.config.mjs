@@ -14,9 +14,7 @@ export default {
 				'dark-primary': '#9cb9d3',
 				'dark-secondary': '#2c4f6d',
 				'dark-accent': '#6296c6',
-			},
-			
-			  
+			},			  
 		},
 	},
 	darkMode:'class',
