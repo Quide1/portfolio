@@ -16,24 +16,24 @@ const { itemsNavBarWithOptional } = Astro.props;
 <div
   class="sm:hidden h-full w-full items-center flex flex-row justify-center rounded-full px-6"
 >
-  <div class="flex flex-rows items-center justify-center gap-8 w-full">
+  <div class="flex flex-rows items-center justify-center gap-8 w-full px-10 ">
     <button>
-      <HomeIcon class="w-8 h-8" />
+      <HomeIcon class="w-6 h-6"/>
     </button>
     <button
       class="font-bold hover:scale-110 hover:text-light-accent dark:hover:text-dark-accent"
       id="open-smart-menu"
       aria-controls="menu-smartphone"
-      aria-expanded="false"><HamburgerIcon class="w-8 h-8" /></button
+      aria-expanded="false"><HamburgerIcon class="w-6 h-6" /></button
     >
   </div>
   <div
     class="hidden fixed top-0 left-0 w-full h-full flex-row justify-center transition-all duration-300 ease-in-out"
     id="menu-smartphone"
   >
-    <div class="w-[20%] h-full bg-black/85 z-50"></div>
+    <div class="w-[10%] h-full bg-black/85 z-50"></div>
     <div
-      class="w-[80%] border-blue-600 bg-light-background dark:bg-dark-background font-bold z-50"
+      class="w-[90%] border-blue-600 bg-light-background dark:bg-dark-background font-bold z-50"
     >
       <div class="h-[800px] flex flex-col py-12 items-center justify-between">
         <div class="flex w-full items-center justify-end px-4">
@@ -54,7 +54,7 @@ const { itemsNavBarWithOptional } = Astro.props;
                   href={e.link}
                   class="flex flex-row items-center justify-start gap-2 "
                 >
-                  <span>
+                  <span class="w-6 h-6 items-center">
                     <e.icon />
                   </span>
                   {e.label}
@@ -76,9 +76,9 @@ const { itemsNavBarWithOptional } = Astro.props;
             </div>
           </div>
         </div>
-        <div class="flex flex-col justify-center w-full pt-8">
+        <div class="flex flex-col justify-center w-full pt-2">
           <p class="uppercase text-lg px-5">Cambiar tema</p>
-          <div class="flex flex-row justify-around items-center w-full py-10">
+          <div class="flex flex-row justify-around items-center w-full py-6">
             <ToggleTheme />
             <div class="h-4 w-4"></div>
           </div>

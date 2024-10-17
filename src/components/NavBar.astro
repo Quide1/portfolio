@@ -33,7 +33,7 @@ export type ItemsNavBarType = typeof itemsNavBar;
 ---
 
 <header class="sticky top-0 flex flex-col items-center justify-center">
-  <nav id="header-nav" class="h-16 min-w-[400px] max-w-[700px]">
+  <nav id="header-nav" class="h-12 lg:h-14  max-w-[700px]">
     <MobileNav {itemsNavBarWithOptional} />
     <DesktopNav itemsNavBar={itemsNavBar} />
   </nav>
