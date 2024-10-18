@@ -1,0 +1,42 @@
+---
+import Badge from "./Badge.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import MailIcon from "./icons/MailIcon.astro";
+---
+
+<section id="home" class="py-16 md:py-36 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl">
+  <div class="flex flex-row gap-2 py-4">
+    <div
+      class="bg-light-primary/90 dark:bg-dark-primary rounded-full items-center flex justify-center"
+    >
+      <img
+        src="/public/meSvg.svg"
+        alt="my face logo"
+        class="w-24 h-24 rounded-full"
+      />
+    </div>
+    <Badge>Disponible para trabajar!</Badge>
+  </div>
+  <h1 class="text-4xl font-bold text-gray-800 dark:text-gray-300 py-4">
+   Ezequiel R. <span class="text-light-accent dark:text-dark-accent">Desarrollador Frontend</span>
+  </h1>
+  <p class="text-xl">
+   <span class="font-bold">+2</span> años de experiencia, soy de <span class="font-bold text-yellow-600 dark:text-yellow-500">Buenos Aires, </span><span class="text-light-accent dark:text-dark-accent font-bold">Argentina</span>  🇦🇷
+  </p>
+  <div class="flex flex-row gap-4 pt-6">
+    <a
+    href=""
+    class="flex flex-row items-center gap-2 border border-black rounded-full backdrop:blur-xl bg-light-secondary/60 dark:bg-dark-secondary/60 font-bold p-2 text-sm"
+  >
+      <MailIcon class="w-4" />
+      Contactame
+    </a>
+    <a
+      href=""
+      class="flex flex-row items-center gap-2 border border-black rounded-full backdrop:blur-xl bg-light-secondary/60 dark:bg-dark-secondary/60 font-bold p-2 text-sm"
+    >
+      <LinkedinIcon class="w-4" />
+      Linkedin
+    </a>
+  </div>
+</section>

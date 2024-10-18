@@ -1,27 +1,26 @@
 ---
-import NavBar from '../components/NavBar.astro';
+import AboutmeSection from '../components/AboutmeSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import HomeSection from '../components/HomeSection.astro';
+import MySkills from '../components/MySkills.astro';
+import ProyectsSection from '../components/ProyectsSection.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Ezequiel Ruciani - Desarrollador Front End - Typescript - Programador">
-    <NavBar/>
-    <main>
-      <div id="div random" class="bg-yellow-600 w-full h-[1000px]">
-        
-      </div>
-      <section id="proyectos" class="bg-red-600 w-full h-[600px]">
-        Hola seccion 1
-      </section>
-      <section id="contacto" class="bg-red-300 w-full h-[600px]">
-        Hola seccion 2
-      </section>
+    <main class="flex flex-col items-center justify-center p-4">
+      <HomeSection/>
+      <ExperienceSection/>
+      <ProyectsSection/>
+      <AboutmeSection/>
+      <MySkills/>
     </main>
 </Layout>
 
 <script>
-    const Divs = document.querySelectorAll('#div-de-fondo-1, #div-de-fondo-2');  // Seleccionamos ambos divs
+    const Divs = document.querySelectorAll('section');  // Seleccionamos ambos divs
     const clickEventHandler = () => {
-        console.log('tocando div');
+        console.log('tocando section');
     };
 
     if (Divs.length > 0) {
