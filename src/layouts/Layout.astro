@@ -1,4 +1,6 @@
 ---
+import NavBar from '../components/NavBar.astro';
+import '@fontsource/inter';
 interface Props {
   title: string;
 }
@@ -19,6 +21,13 @@ const { title } = Astro.props;
   <body
     class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text"
   >
+  <NavBar/>
     <slot />
   </body>
 </html>
+
+<style>
+  body{
+    font-family: "Inter";
+  }
+</style>
