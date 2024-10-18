@@ -1,6 +1,6 @@
 ---
 import CaseIcon from "./icons/CaseIcon.astro";
-import Clipboard from "./icons/Clipboard.astro";
+import CodeIcon from "./icons/CodeIcon.astro";
 import UserIcon from "./icons/UserIcon.astro";
 import MailIcon from "./icons/MailIcon.astro";
 import ArticleIcon from "./icons/ArticleIcon.astro";
@@ -14,7 +14,7 @@ const itemsNavBar = [
     icon: CaseIcon,
     id: "experiencia",
   },
-  { label: "Proyectos", link: "#proyectos", icon: Clipboard, id: "proyectos" },
+  { label: "Proyectos", link: "#proyectos", icon: CodeIcon, id: "proyectos" },
   { label: "Sobre mí", link: "#sobre-mi", icon: UserIcon, id: "sobre-mi" },
   {
     label: "Contacto",
@@ -32,8 +32,8 @@ export type ItemsNavMobileType = typeof itemsNavBarWithOptional;
 export type ItemsNavBarType = typeof itemsNavBar;
 ---
 
-<header class="sticky top-0 flex flex-col items-center justify-center">
-  <nav id="header-nav" class="h-12 lg:h-14  max-w-[700px]">
+<header class="sticky top-0 flex flex-col items-center justify-center z-50">
+  <nav id="header-nav" class="h-12 sm:h-14  max-w-[700px]">
     <MobileNav {itemsNavBarWithOptional} />
     <DesktopNav itemsNavBar={itemsNavBar} />
   </nav>
@@ -47,7 +47,7 @@ export type ItemsNavBarType = typeof itemsNavBar;
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.5,
+    threshold: 1,
   };
   /** Callback por cada una de las entradas que registre cuando pase se active por el threshold */
   const callback = (entries: any[]) => {
@@ -155,12 +155,12 @@ export type ItemsNavBarType = typeof itemsNavBar;
   });
 </script>
 <style is:global>
-  #header-nav {
+  .blured {
     animation-name: blur-light;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-fill-mode: both;
     animation-timeline: scroll();
-    animation-range: 40px;
+    animation-range: 1px;
     color: #0f151a;
   }
 
@@ -172,18 +172,20 @@ export type ItemsNavBarType = typeof itemsNavBar;
     }
     to {
       border-width: 1px;
-      border-color: black;
+      border-color: rgba(128, 128, 128, 0.335);
       border-radius: 9999px;
       background-color: rgba(155, 155, 155, 0.2);
-
       margin-top: 10px;
+      backdrop-filter: blur(20px);
     }
   }
 
-  .dark #header-nav {
+  .dark .blured {
     animation-name: blur-dark;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 1px;
     color: #e5ebf0;
   }
 
@@ -195,10 +197,11 @@ export type ItemsNavBarType = typeof itemsNavBar;
     }
     to {
       border-width: 1px;
-      border-color: gray;
+      border-color: rgba(128, 128, 128, 0.335);
       border-radius: 9999px;
       background-color: rgba(0, 0, 0, 0.2);
       margin-top: 10px;
+      backdrop-filter: blur(20px);
     }
   }
 </style>
