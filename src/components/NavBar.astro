@@ -47,7 +47,7 @@ export type ItemsNavBarType = typeof itemsNavBar;
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 1,
+    threshold: 0.1,
   };
   /** Callback por cada una de las entradas que registre cuando pase se active por el threshold */
   const callback = (entries: any[]) => {
@@ -125,34 +125,6 @@ export type ItemsNavBarType = typeof itemsNavBar;
     e.addEventListener("click", toggleClassMenuSmart);
   });
 
-  /** Cambiar tema de la página */
-  const currentTheme =
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light");
-  document.documentElement.classList.toggle("dark", currentTheme === "dark");
-  document.querySelectorAll(".theme-toggle-icon").forEach((elementFor) => {
-    const element = elementFor as HTMLElement;
-    element.style.scale = element.id === currentTheme ? "1" : "0";
-  });
-
-  const updateIcon = (isDarkMode: boolean) => {
-    const themePreference = isDarkMode ? "dark" : "light";
-
-    document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
-      const htmlElement = element as HTMLElement;
-      htmlElement.style.scale = htmlElement.id === themePreference ? "1" : "0";
-    });
-  };
-  themeToggleButton.forEach((e) => {
-    e.addEventListener("click", () => {
-      console.log("cambiando tema");
-      const isDarkMode = document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-      updateIcon(isDarkMode);
-    });
-  });
 </script>
 <style is:global>
   .blured {
@@ -175,7 +147,7 @@ export type ItemsNavBarType = typeof itemsNavBar;
       border-color: rgba(128, 128, 128, 0.335);
       border-radius: 9999px;
       background-color: rgba(155, 155, 155, 0.2);
-      margin-top: 10px;
+      margin-top: 20px;
       backdrop-filter: blur(20px);
     }
   }
@@ -200,7 +172,7 @@ export type ItemsNavBarType = typeof itemsNavBar;
       border-color: rgba(128, 128, 128, 0.335);
       border-radius: 9999px;
       background-color: rgba(0, 0, 0, 0.2);
-      margin-top: 10px;
+      margin-top: 20px;
       backdrop-filter: blur(20px);
     }
   }

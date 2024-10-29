@@ -2,37 +2,39 @@
 import ExperienceItem from "./ExperienceItem.astro";
 import CaseIcon from "./icons/CaseIcon.astro";
 const EXPERIENCE = [
-{
+  {
     date: "Actualmente",
     title: "Desarollador de software",
     company: "Freelancer",
     description:
       "Construí sitios web y soluciones personalizadas para clientes como freelance, enfocándome en la optimización del rendimiento y la experiencia de usuario. Tecnologías utilizadas: JavaScript, React y Tailwind CSS.",
-  },{
+  },
+  {
     date: "02/2024",
     title: "Desarollador de software",
     company: "Grupo msa",
     description:
       "Desarrollé una aplicación con fines de identificacion y validacion de personas para su uso en ambientes de elecciones, tecnogolias usadas: TypeScript, React y framework de manejo del dispositivo desarrollado por MSA.",
   },
-  
-
-]
+];
 ---
 
 <section
   id="experiencia"
-  class="section py-16 md:py-34 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl bg-red-600"
+  class="section py-16 md:py-34 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
 >
-<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"><CaseIcon class="w-8 h-8"/>Experiencia laboral</h2>
-<ol class="relative mt-16">
-  {
-    EXPERIENCE.map((experience) => (
-      <li class="">
-        <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
-</ol>
-
+  <h2
+    class="flex items-center mb-4 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"
+  >
+    <CaseIcon class="w-8 h-8" />Experiencia laboral
+  </h2>
+  <ol class="relative mt-14">
+    {
+      EXPERIENCE.map((experience) => (
+        <li class="">
+          <ExperienceItem {...experience} />
+        </li>
+      ))
+    }
+  </ol>
 </section>
