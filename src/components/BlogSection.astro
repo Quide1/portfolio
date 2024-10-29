@@ -1,0 +1,20 @@
+---
+import BookIcon from "./icons/BookIcon.astro"
+const posts = await Astro.glob('../pages/blog/*.mdx');
+---
+<section
+  id="blog"
+  class="section pt-16 pb-32 md:pt-34 md:pb-32 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl flex flex-col gap-2"
+
+>
+<h2
+class="flex items-center mb-4 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"
+>
+    <BookIcon class="size-8" />Ultimos articulos
+  </h2>
+  <ul>
+    <ul>
+      {posts.map(post => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+    </ul>
+  </ul>
+</section>
