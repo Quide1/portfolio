@@ -16,7 +16,7 @@ import SunIcon from "./icons/SunIcon.astro";
       class="absolute w-12 h-12 bg-gradient-to-r rounded-full blur-lg opacity-80 z-10 from-blue-500 to-purple-500 "
     >
     </div>
-    <MoonIcon class="w-7 h-7 z-20" />
+    <MoonIcon class="size-6 z-20"/>
   </div>
   <div
     id="light"
@@ -26,6 +26,40 @@ import SunIcon from "./icons/SunIcon.astro";
       class="absolute w-12 h-12 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full blur-lg opacity-80 z-10"
     >
     </div>
-    <SunIcon class="w-7 h-7 z-20" />
+    <SunIcon class="size-6 z-20" />
   </div>
 </button>
+
+
+<script>
+  const themeToggleButton = document.querySelectorAll("#theme-toggle");
+  /** Cambiar tema de la página */
+  const currentTheme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+      console.log(currentTheme)
+  document.documentElement.classList.toggle("dark", currentTheme === "dark");
+  document.querySelectorAll(".theme-toggle-icon").forEach((elementFor) => {
+    const element = elementFor as HTMLElement;
+    element.style.scale = element.id === currentTheme ? "1" : "0";
+  });
+
+  const updateIcon = (isDarkMode: boolean) => {
+    const themePreference = isDarkMode ? "dark" : "light";
+
+    document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
+      const htmlElement = element as HTMLElement;
+      htmlElement.style.scale = htmlElement.id === themePreference ? "1" : "0";
+    });
+  };
+  themeToggleButton.forEach((e) => {
+    e.addEventListener("click", () => {
+      console.log("cambiando tema");
+      const isDarkMode = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+      updateIcon(isDarkMode);
+    });
+  });
+</script>
