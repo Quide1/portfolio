@@ -13,7 +13,7 @@ const { name, description, images, links, tags } = Astro.props.projectInfo;
     <CardProjectCarousel client:visible images={images} />
   </div>
   <h3 class="text-2xl font-bold">{name}</h3>
-  <div class="flex gap-4 items-start justify-start w-full">
+  <div class="flex gap-4 items-start justify-start w-full flex-wrap">
     {
       tags.map((e) => {
         return (
@@ -21,7 +21,7 @@ const { name, description, images, links, tags } = Astro.props.projectInfo;
             class={`flex gap-x-2 rounded-full text-xs  py-1 px-2 items-center ${e.class}`}
           >
             <>
-              <e.Icon />
+              <e.Icon class="size-6"/>
               <p>{e.name}</p>
             </>
           </div>
