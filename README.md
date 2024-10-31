@@ -7,13 +7,13 @@ Este es el repositorio de mi portafolio personal desarrollado con [Astro](https:
 - **Astro**: Framework rápido y eficiente para crear sitios estáticos.
 - **Tailwind CSS**: Biblioteca de CSS para diseño rápido y responsive.
 - **JavaScript** y **TypeScript**: Para agregar funcionalidad interactiva.
-- **ShadcnUI** y **Framer Motion**: Para animaciones y componentes visuales.
 
 ## Funcionalidades
 
 - **Proyectos Destacados**: Una sección donde muestro algunos de los proyectos en los que he trabajado.
 - **Sobre Mí**: Información sobre mi experiencia, habilidades y formación.
 - **Contacto**: Formulario de contacto para que los visitantes puedan enviarme mensajes directamente.
+- **Blog**: Blog donde muestro mis avances.
 
 ## Instalación
 
@@ -28,6 +28,6 @@ Este es el repositorio de mi portafolio personal desarrollado con [Astro](https:
     ```
 
 3. Inicia el servidor de desarrollo:
-```bash
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
