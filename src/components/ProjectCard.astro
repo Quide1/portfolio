@@ -1,0 +1,50 @@
+---
+import CardProjectCarousel from "./CardProjectCarousel";
+import { type ProjectType } from "./ProjectsSection.astro";
+interface Props {
+  projectInfo: ProjectType;
+}
+
+const { name, description, images, links, tags } = Astro.props.projectInfo;
+---
+
+<article class="flex flex-col justify-center gap-4 bg-blue my-12">
+  <div class="flex items-center justify-center">
+    <CardProjectCarousel client:visible images={images} />
+  </div>
+  <h3 class="text-2xl font-bold">{name}</h3>
+  <div class="flex gap-4 items-start justify-start w-full">
+    {
+      tags.map((e) => {
+        return (
+          <div
+            class={`flex gap-x-2 rounded-full text-xs  py-1 px-2 items-center ${e.class}`}
+          >
+            <>
+              <e.Icon />
+              <p>{e.name}</p>
+            </>
+          </div>
+        );
+      })
+    }
+  </div>
+  <p class="text-gray-600 dark:text-gray-400">{description}</p>
+  
+  <div class="flex flex-row gap-4">
+    {links?.map((e) => {
+      return (
+        <a
+          href={e.href}
+          class={`inline-flex items-center justify-center gap-1 px-4 py-1 space-x-2 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm ${e.icon.class}`}
+          target="_blank"
+          rel="noopener noreferrer" 
+        >
+          <e.icon.Icon class="w-5 h-5" /> 
+          <p>{e.icon.label}</p>
+        </a>
+      );
+    })}
+  </div>
+  
+</article>
