@@ -28,10 +28,7 @@ const { frontmatter } = Astro.props;
 
     <main class="flex flex-col items-center justify-center p-4">
       <section class="py-16 md:py-34 flex flex-col gap-10 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold">{frontmatter.title}</h1>
-        <h2 class="text-lg md:text-xl">
-          Autor del artículo: {frontmatter.author}
-        </h2>
+        <h1 class="text-4xl md:text-5xl font-bold">{frontmatter.title}</h1>        
         <p class="text-base md:text-lg">{frontmatter.description}</p>
       </section>
 
