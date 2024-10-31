@@ -1,0 +1,108 @@
+---
+import CodeIcon from "./icons/CodeIcon.astro";
+import ProjectCard from "./ProjectCard.astro";
+import YoutubeIcon from "../components/icons/YoutubeIcon.astro"
+import WebIcon from "../components/icons/WebIcon.astro"
+import GithubIcon from "./icons/GithubIcon.astro";
+import ExpressIcon from "./icons/ExpressIcon.astro";
+import NextjsIcon from './icons/NextjsIcon.astro'
+import TailwindIcon from './icons/TailwindIcon.astro'
+import ViteIcon from './icons/ViteIcon.astro'
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-white text-black border",
+    Icon: NextjsIcon,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white border",
+    Icon: TailwindIcon,
+  },
+  EXPRESS:{
+    name:"ExpressJs"
+    ,class:"bg-white text-black border"
+    ,Icon:ExpressIcon
+  },
+  VITE: {
+    name: "Vite",
+    class: "bg-white text-black border",
+    Icon: ViteIcon,
+  },
+};
+
+const LINKS = {
+  Youtube: {
+    label: "Youtube",
+    class: "bg-red-600  hover:bg-red-800 ", 
+    Icon: YoutubeIcon,
+  },
+  GitHub: {
+    label: "Code",
+    class: "bg-gray-400 dark:bg-gray-700 ", 
+    Icon: GithubIcon,
+  },
+  WebLink: {
+    label: "Link",
+    class: "bg-light-secondary dark:bg-dark-secondary ", 
+    Icon: WebIcon,
+  },
+
+};
+
+
+const Projects = [
+  {
+    name: "MarketPlace + IA",
+    description:
+      "Desarrollé una aplicación que permite ingresar un enlace de búsqueda de artículos de un marketplace y extrae información en tiempo real usando un servidor en Express con Puppeteer. La información recopilada se muestra en una interfaz construida con React y Vite, donde los usuarios pueden agregar artículos a favoritos y hacer consultas a una IA. Utilicé Server-Sent Events (SSE) para manejar la transmisión continua de datos.",
+    images: [
+      { src: "public/images/IaFacebook1.webp" },
+      { src: "public/images/IaFacebook2.webp" },
+      { src: "public/images/IaFacebook3.webp" },
+    ],
+    tags: [TAGS.VITE, TAGS.EXPRESS,TAGS.TAILWIND],
+links:[{href:"https://github.com/Quide1/marketplace-ia-backend",icon:LINKS.GitHub}]
+  },
+  {
+    name: "Vaskins",
+    description:
+      "Creé una página web interactiva donde los usuarios pueden explorar skins de armas, cartas y sprays del juego, visualizando animaciones y chromas de cada skin. Además, incluí una funcionalidad para simular cómo se verían las cartas seleccionadas dentro del juego. Utilicé la API oficial de Riot Games para obtener los datos y ofrecer una experiencia dinámica.",
+    images: [
+      { src: "public/images/Vaskins1.webp" },
+      { src: "public/images/Vaskins2.webp" },
+      { src: "public/images/Vaskins3.webp" },
+      { src: "public/images/Vaskins4.webp" },
+      { src: "public/images/Vaskins5.webp" },
+    ],
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    links:[{href:"https://vaskins.vercel.app/",icon:LINKS.WebLink}]
+  },
+  {
+    name: "Pomodoro App",
+    description:
+      "Desarrollé una aplicación basada en la técnica Pomodoro, que permite a los usuarios agregar tareas, personalizar los tiempos de trabajo y descanso, elegir el sonido del temporizador, y activar el inicio automático de cada ciclo. Implementé el manejo de estados globales utilizando Zustand, y construí el frontend con React y Vite para asegurar un rendimiento eficiente.",
+    images: [
+      { src: "public/images/Pomodoro1.webp" },
+      { src: "public/images/Pomodoro2.webp" },
+      { src: "public/images/Pomodoro3.webp" },
+    ],
+    tags: [TAGS.VITE, TAGS.TAILWIND],
+    links:[{href:"https://pomodoro-app-seven-gilt.vercel.app/",icon:LINKS.WebLink}]
+  },
+];
+
+export type ProjectType = (typeof Projects)[number];
+---
+
+<section
+  id="proyectos"
+  class="section py-16 md:py-34 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+>
+  <h2
+    class="flex items-center mb-4 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined"
+  >
+    <CodeIcon class="w-8 h-8" />Proyectos
+  </h2>
+  {Projects.map((e) => <ProjectCard  projectInfo={e} />)}
+</section>
