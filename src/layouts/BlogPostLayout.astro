@@ -1,0 +1,107 @@
+---
+import HomeIcon from "../components/icons/HomeIcon.astro";
+import ToggleTheme from "../components/ToggleTheme.astro";
+
+import "../styles/mdStyles.css";
+const { frontmatter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body
+    class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text flex flex-col items-center"
+  >
+    <header class="w-full flex items-center justify-center sticky top-0">
+      <nav class="flex flex-rows items-center justify-center gap-8 w-full px-10 blured h-10 md:h-12 max-w-[600px]">
+        <a href="/"
+          ><HomeIcon class="size-6 lg:hidden" /><span
+            class="hidden lg:inline font-bold uppercase text-sm">Volver al inicio</span
+          ></a
+        ><ToggleTheme />
+      </nav>
+    </header>
+
+    <main class="flex flex-col items-center justify-center p-4">
+      <section class="py-16 md:py-34 flex flex-col gap-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold">{frontmatter.title}</h1>
+        <h2 class="text-lg md:text-xl">
+          Autor del artículo: {frontmatter.author}
+        </h2>
+        <p class="text-base md:text-lg">{frontmatter.description}</p>
+      </section>
+
+      <!-- Contenedor con clase que aplica los estilos específicos -->
+      <section class="py-16 md:py-34 container prose prose-lg dark:prose-dark md-content">
+        <slot />
+      </section>
+    </main>
+
+    <footer
+      class="container flex flex-row flex-wrap justify-between text-gray-700 dark:text-gray-400"
+    >
+      <p>Hecho con ❤️ & 🧉</p>
+      <div class="flex flex-row gap-4">
+        <a target="_blank">Contactarme</a>
+        <a target="_blank">Linkedin</a>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+<style is:global>
+  .blured {
+    animation-name: blur-light;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 1px;
+    color: #0f151a;
+  }
+
+  @keyframes blur-light {
+    from {
+      border-width: 0px;
+      border-color: transparent;
+      background-color: transparent;
+    }
+    to {
+      border-width: 1px;
+      border-color: rgba(128, 128, 128, 0.335);
+      border-radius: 9999px;
+      background-color: rgba(155, 155, 155, 0.2);
+      margin-top: 20px;
+      backdrop-filter: blur(20px);
+    }
+  }
+
+  .dark .blured {
+    animation-name: blur-dark;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 1px;
+    color: #e5ebf0;
+  }
+
+  @keyframes blur-dark {
+    from {
+      border-width: 0px;
+      border-color: transparent;
+      background-color: transparent;
+    }
+    to {
+      border-width: 1px;
+      border-color: rgba(128, 128, 128, 0.335);
+      border-radius: 9999px;
+      background-color: rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+      backdrop-filter: blur(20px);
+    }
+  }
+</style>
