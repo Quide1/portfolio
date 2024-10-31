@@ -26,12 +26,11 @@ const { frontmatter } = Astro.props;
       </nav>
     </header>
 
-    <main class="flex flex-col items-center justify-center p-4 min-h-[90vh]">
+    <main class="flex flex-col  items-center p-4 min-h-[90vh]">
       <section class="py-16 md:py-34 flex flex-col gap-10 text-center">
         <h1 class="text-4xl md:text-5xl font-bold">{frontmatter.title}</h1>        
         <p class="text-base md:text-lg">{frontmatter.description}</p>
       </section>
-
       <!-- Contenedor con clase que aplica los estilos específicos -->
       <section class="py-16 md:py-34 container prose prose-lg dark:prose-dark md-content">
         <slot />
@@ -43,8 +42,8 @@ const { frontmatter } = Astro.props;
     >
       <p>Hecho con ❤️ & 🧉</p>
       <div class="flex flex-row gap-4">
-        <a target="_blank">Contactarme</a>
-        <a target="_blank">Linkedin</a>
+        <a target="_blank" href="mailto:ezequielr.dev@gmail.com?subject=Propuesta&body=Hola%2C%20te%20tengo%20una%20propuesta">Contactarme</a>
+        <a target="_blank"  href="https://www.linkedin.com/in/ezequiel-r/">Linkedin</a>
       </div>
     </footer>
   </body>
