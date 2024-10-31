@@ -12,7 +12,7 @@ Este es el repositorio de mi portafolio personal desarrollado con [Astro](https:
 
 - **Proyectos Destacados**: Una sección donde muestro algunos de los proyectos en los que he trabajado.
 - **Sobre Mí**: Información sobre mi experiencia, habilidades y formación.
-- **Contacto**: Formulario de contacto para que los visitantes puedan enviarme mensajes directamente.
+- **Contacto**: Acceso a Gmail para que los visitantes puedan enviarme mensajes directamente.
 - **Blog**: Blog donde muestro mis avances.
 
 ## Instalación
@@ -31,3 +31,5 @@ Este es el repositorio de mi portafolio personal desarrollado con [Astro](https:
     ```bash
     npm run dev
     ```
+
+### Inspirado en el MiduFolio 
