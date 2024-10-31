@@ -26,7 +26,7 @@ const { frontmatter } = Astro.props;
       </nav>
     </header>
 
-    <main class="flex flex-col items-center justify-center p-4">
+    <main class="flex flex-col items-center justify-center p-4 min-h-[90vh]">
       <section class="py-16 md:py-34 flex flex-col gap-10 text-center">
         <h1 class="text-4xl md:text-5xl font-bold">{frontmatter.title}</h1>        
         <p class="text-base md:text-lg">{frontmatter.description}</p>
@@ -39,7 +39,7 @@ const { frontmatter } = Astro.props;
     </main>
 
     <footer
-      class="container flex flex-row flex-wrap justify-between text-gray-700 dark:text-gray-400"
+      class="container flex flex-row flex-wrap justify-between text-gray-700 dark:text-gray-400 py-2"
     >
       <p>Hecho con ❤️ & 🧉</p>
       <div class="flex flex-row gap-4">
