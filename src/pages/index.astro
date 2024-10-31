@@ -19,15 +19,3 @@ import Layout from '../layouts/Layout.astro';
     <FooterPortfolio/>
 </Layout>
 
-<script>
-    const Divs = document.querySelectorAll('section');  // Seleccionamos ambos divs
-    const clickEventHandler = () => {
-        console.log('tocando section');
-    };
-
-    if (Divs.length > 0) {
-        Divs.forEach(div => {
-            div.addEventListener('click', clickEventHandler);  // Agregamos el listener a cada div
-        });
-    }
-</script>

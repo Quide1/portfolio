@@ -39,7 +39,6 @@ import SunIcon from "./icons/SunIcon.astro";
     (window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light");
-      console.log(currentTheme)
   document.documentElement.classList.toggle("dark", currentTheme === "dark");
   document.querySelectorAll(".theme-toggle-icon").forEach((elementFor) => {
     const element = elementFor as HTMLElement;
@@ -56,7 +55,6 @@ import SunIcon from "./icons/SunIcon.astro";
   };
   themeToggleButton.forEach((e) => {
     e.addEventListener("click", () => {
-      console.log("cambiando tema");
       const isDarkMode = document.documentElement.classList.toggle("dark");
       localStorage.setItem("theme", isDarkMode ? "dark" : "light");
       updateIcon(isDarkMode);

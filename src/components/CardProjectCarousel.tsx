@@ -56,9 +56,6 @@ function CardProjectCarousel({ images }: CarouselProps) {
   const slideImgRight = () =>
     setCurrentIndexImage((prevState) => prevState + 1);
 
-  useEffect(() => {
-    console.log(currentIndexImage), [currentIndexImage];
-  });
   return (
     <article className="relative w-full overflow-hidden h-[300px] sm:h-[400px] lg:h-[450px]  border-gray-500  ">
       <div
