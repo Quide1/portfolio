@@ -18,7 +18,7 @@ const { name, description, images, links, tags } = Astro.props.projectInfo;
       tags.map((e) => {
         return (
           <div
-            class={`flex gap-x-2 rounded-full text-xs  py-1 px-2 items-center ${e.class}`}
+            class={`flex gap-x-2 rounded-full text-xs  py-1 px-2 items-center ${e.class} font-semibold`}
           >
             <>
               <e.Icon class="size-6"/>
