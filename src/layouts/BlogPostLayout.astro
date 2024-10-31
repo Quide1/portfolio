@@ -8,10 +8,12 @@ const { frontmatter } = Astro.props;
 
 <!doctype html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{frontmatter.title}</title>
+    <link rel="icon" href="/meSvg.svg" type="image/svg+xml">
   </head>
   <body
     class="bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text flex flex-col items-center"
