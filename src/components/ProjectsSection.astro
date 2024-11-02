@@ -8,6 +8,7 @@ import ExpressIcon from "./icons/ExpressIcon.astro";
 import NextjsIcon from './icons/NextjsIcon.astro'
 import TailwindIcon from './icons/TailwindIcon.astro'
 import ViteIcon from './icons/ViteIcon.astro'
+import TypescriptIcon from "./icons/TypescriptIcon.astro";
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -28,6 +29,10 @@ const TAGS = {
     name: "Vite",
     class: "bg-gray-300 dark:bg-gray-800 ",
     Icon: ViteIcon,
+  },TYPESCRIPT: {
+    name: "Typescript",
+    class: "bg-gray-400 dark:bg-gray-800 ",
+    Icon: TypescriptIcon,
   },
 };
 
@@ -61,7 +66,7 @@ const Projects = [
       { src: "/images/IaFacebook2.webp" },
       { src: "/images/IaFacebook3.webp" },
     ],
-    tags: [TAGS.VITE, TAGS.EXPRESS,TAGS.TAILWIND],
+    tags: [TAGS.VITE, TAGS.EXPRESS,TAGS.TAILWIND,TAGS.TYPESCRIPT],
 links:[{href:"https://github.com/Quide1/marketplace-ia-backend",icon:LINKS.GitHub}]
   },
   {
@@ -75,7 +80,7 @@ links:[{href:"https://github.com/Quide1/marketplace-ia-backend",icon:LINKS.GitHu
       { src: "/images/Vaskins4.webp" },
       { src: "/images/Vaskins5.webp" },
     ],
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.NEXT, TAGS.TAILWIND,TAGS.TYPESCRIPT],
     links:[{href:"https://vaskins.vercel.app/",icon:LINKS.WebLink},{href:"https://github.com/Quide1/val-skins",icon:LINKS.GitHub}]
   },
   {
@@ -87,7 +92,7 @@ links:[{href:"https://github.com/Quide1/marketplace-ia-backend",icon:LINKS.GitHu
       { src: "/images/Pomodoro2.webp" },
       { src: "/images/Pomodoro3.webp" },
     ],
-    tags: [TAGS.VITE, TAGS.TAILWIND],
+    tags: [TAGS.VITE, TAGS.TAILWIND,TAGS.TYPESCRIPT],
     links:[{href:"https://pomodoro-app-seven-gilt.vercel.app/",icon:LINKS.WebLink},{href:"https://github.com/Quide1/pomodoro-app",icon:LINKS.GitHub}]
   },
 ];
