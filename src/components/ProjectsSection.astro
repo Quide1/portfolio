@@ -9,7 +9,13 @@ import NextjsIcon from './icons/NextjsIcon.astro'
 import TailwindIcon from './icons/TailwindIcon.astro'
 import ViteIcon from './icons/ViteIcon.astro'
 import TypescriptIcon from "./icons/TypescriptIcon.astro";
+import ReactRouterIcon from "./icons/ReactRouterIcon.astro";
 const TAGS = {
+  REACTROUTER :{
+    name:"React Router",
+    class:"bg-white text-black h-8 flex items-center justify-center gap-2",
+    Icon:ReactRouterIcon
+  },
   NEXT: {
     name: "Next.js",
     class: "bg-white text-black ",
@@ -80,7 +86,7 @@ links:[{href:"https://github.com/Quide1/marketplace-ia-backend",icon:LINKS.GitHu
       { src: "/images/Vaskins4.webp" },
       { src: "/images/Vaskins5.webp" },
     ],
-    tags: [TAGS.NEXT, TAGS.TAILWIND,TAGS.TYPESCRIPT],
+    tags: [TAGS.REACTROUTER,TAGS.TAILWIND,TAGS.TYPESCRIPT],
     links:[{href:"https://vaskins.vercel.app/",icon:LINKS.WebLink},{href:"https://github.com/Quide1/val-skins",icon:LINKS.GitHub}]
   },
   {
