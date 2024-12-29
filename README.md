@@ -1,35 +1,26 @@
-# Portafolio Personal
+# Personal Portfolio
 
-Este es el repositorio de mi portafolio personal desarrollado con [Astro](https://astro.build/). Aquí muestro mi trabajo y proyectos como desarrollador frontend, utilizando las mejores prácticas y tecnologías modernas.
+This is the repository for my personal portfolio developed with [Astro](https://astro.build/). Here, I showcase my work and projects as a frontend developer, using best practices and modern technologies.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
-- **Astro**: Framework rápido y eficiente para crear sitios estáticos.
-- **Tailwind CSS**: Biblioteca de CSS para diseño rápido y responsive.
-- **JavaScript** y **TypeScript**: Para agregar funcionalidad interactiva.
+- **Astro**: A fast and efficient framework for building static sites.
+- **Tailwind CSS**: A CSS library for rapid and responsive design.
+- **JavaScript** and **TypeScript**: For adding interactive functionality.
 
-## Funcionalidades
+## Features
 
-- **Proyectos Destacados**: Una sección donde muestro algunos de los proyectos en los que he trabajado.
-- **Sobre Mí**: Información sobre mi experiencia, habilidades y formación.
-- **Contacto**: Acceso a Gmail para que los visitantes puedan enviarme mensajes directamente.
-- **Blog**: Blog donde muestro mis avances.
+- **Featured Projects**: A section highlighting some of the projects I've worked on.
+- **About Me**: Information about my experience, skills, and education.
+- **Contact**: Access to Gmail, allowing visitors to send me messages directly.
+- **Blog**: A blog where I share my progress.
 
-## Instalación
+## Installation
 
-1. Clona el repositorio:
+- Clone the repository:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git   
-    ```
+   git clone https://github.com/your-username/your-repository.git   
 
-2. Clona el repositorio:
-   ```bash
    npm install
-    ```
-
-3. Inicia el servidor de desarrollo:
-    ```bash
-    npm run dev
-    ```
-
-### Inspirado en el MiduFolio 
+   
+   npm run dev
